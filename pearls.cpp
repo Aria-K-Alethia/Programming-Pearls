@@ -5,7 +5,7 @@
 		of the book << Programming Pearls >>.
 	Licence:
 		MIT
-		
+
 	THE USER OF THIS CODE AGREES TO ASSUME ALL LIABILITY FOR THE USE OF THIS CODE.
 	Any use of this code should display all the info above.
 	
@@ -1268,8 +1268,13 @@ void quick_sort4(int arr[], int l, int u)
 		   (1) random output order: use permutation
 		   (2) allow duplication: use a bucket, sample randomly
 		   (3) both (1) (2): sample directly
-		9. use m random number even when m is near n. we can use knuth's algorithm.
-
+		9. use set and generate onlyu m random number even when m is near n.
+		   This is called the floyd algorithm, see genfloyd;
+		10. select a element in a set randomly, while we don't know the exact number of the
+		    elements in the set until we stop reading. see random_select;
+		11. Compute the probability to win a game, which equals to the probability of generating a
+			random permutation of 1,2,3 in which 1 and 2 are in front of 3(The other 13 integers is
+		    meanless for this problem). So the final probability is 1/3.
 
 */
 
@@ -1358,6 +1363,36 @@ void genshuf(int m, int n)
 	for(int i = 0 ; i < m ; ++i)
 		cout << arr[i] << endl;
 }
+
+void genfloyd(int m, int n)
+{
+	set<int> S;
+	set<int>::iterator i;
+	for(int j = n - m ; j < n ; ++j){
+		int t = rand() % (j + 1);
+		if(t == j || S.find(t) == S.end())
+			S.insert(t); // t not in S
+		else
+			S.insert(j); // t in S, j should never in S
+	}
+	for(i = S.begin() ; i != S.end() ; ++i)
+		cout << *i << " ";
+	cout << endl;
+}
+
+int random_select(vector<int> vec)
+{
+	srand((unsigned int)time(NULL));
+	vector<int>::iterator i;
+	int t = 0, n = 0;
+	for(i = vec.begin() ; i != vec.end() ; ++i){
+		n++;
+		if((rand() % n) == (n-1))
+			t = *i;
+	}
+	return t;
+}
+
 
 void col12_main()
 {
