@@ -5,7 +5,6 @@ The code includes not only the sample problem in each columns but also many prob
 You can read the comment in the code to obtain more information.
 
 ## TODO
-- column 12 problems
 - column 13, 15
 - column 14, rest
 - split the code by column number
