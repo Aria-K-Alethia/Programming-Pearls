@@ -7,7 +7,6 @@ You can read the comment in the code to obtain more information.
 ## TODO
 - column 13, 15
 - column 14, rest
-- split the code by column number
 
 ## Licence
 MIT
