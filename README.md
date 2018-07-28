@@ -5,8 +5,7 @@ The code includes not only the sample problem in each columns but also many prob
 You can read the comment in the code to obtain more information.
 
 ## TODO
-- column 13, 15
-- column 14, rest
+- column 15
 
 ## Licence
 MIT
